@@ -1,0 +1,21 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+# Local documents and generated data: allow only directory instructions/markers.
+/data/*
+!/data/README.md
+!/data/.gitkeep
+/outputs/*
+!/outputs/.gitkeep
+/logs/*
+!/logs/.gitkeep
+/evidence/*
+!/evidence/README.md
+*.log
+.DS_Store
+/local/
+/release/
+.pytest_cache/

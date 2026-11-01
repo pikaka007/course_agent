@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "id": "mail_draft",
+  "title": "邮件草稿",
+  "kind": "builtin",
+  "action": "mail",
+  "description": "准备可编辑邮件草稿预览。收件人必须由用户提供；不会发送邮件，也不会写入在线邮箱。",
+  "permissions": [
+    "创建待确认预览"
+  ],
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "to": {
+        "type": "string",
+        "maxLength": 254
+      },
+      "subject": {
+        "type": "string",
+        "maxLength": 200
+      },
+      "body": {
+        "type": "string",
+        "maxLength": 18000
+      }
+    },
+    "required": [
+      "to",
+      "subject",
+      "body"
+    ],
+    "additionalProperties": false
+  }
+}

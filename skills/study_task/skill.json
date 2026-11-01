@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "id": "study_task",
+  "title": "手动任务",
+  "kind": "builtin",
+  "action": "task",
+  "description": "仅根据用户明确提出的任务创建预览，不从文档提取作业和截止时间。due可为空。",
+  "permissions": [
+    "创建待确认预览"
+  ],
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "maxLength": 160
+      },
+      "minutes": {
+        "type": "integer",
+        "minimum": 5,
+        "maximum": 480
+      },
+      "priority": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 3
+      },
+      "due": {
+        "type": "string",
+        "maxLength": 40
+      }
+    },
+    "required": [
+      "title",
+      "minutes",
+      "priority",
+      "due"
+    ],
+    "additionalProperties": false
+  }
+}

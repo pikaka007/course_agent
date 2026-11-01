@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "id": "focus_minutes",
+  "title": "专注时长换算",
+  "kind": "python",
+  "description": "将用户指定的专注轮数换算为总分钟数。",
+  "permissions": [
+    "运行本地Python代码，拥有当前用户权限"
+  ],
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "rounds": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 20
+      },
+      "minutes": {
+        "type": "integer",
+        "minimum": 5,
+        "maximum": 120
+      }
+    },
+    "required": [
+      "rounds",
+      "minutes"
+    ],
+    "additionalProperties": false
+  }
+}

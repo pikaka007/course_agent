@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "id": "study_plan",
+  "title": "学习计划",
+  "kind": "builtin",
+  "action": "plan",
+  "description": "根据手动任务和日历寻找无冲突学习时段，只返回预览；不会写入日历。",
+  "permissions": [
+    "读取本地学习工作区"
+  ],
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "task_ids": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "maxLength": 40
+        },
+        "maxItems": 30
+      },
+      "start": {
+        "type": "string",
+        "maxLength": 40
+      },
+      "end": {
+        "type": "string",
+        "maxLength": 40
+      },
+      "day_start": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 23
+      },
+      "day_end": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 24
+      }
+    },
+    "required": [
+      "task_ids",
+      "start",
+      "end",
+      "day_start",
+      "day_end"
+    ],
+    "additionalProperties": false
+  }
+}

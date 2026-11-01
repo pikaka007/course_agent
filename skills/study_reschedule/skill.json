@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "id": "study_reschedule",
+  "title": "调整学习安排",
+  "kind": "builtin",
+  "action": "event_update",
+  "description": "根据用户明确要求调整已有本地日历事件时间。仅创建预览，确认时重新检查冲突。",
+  "permissions": [
+    "创建待确认预览"
+  ],
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "maxLength": 40
+      },
+      "start": {
+        "type": "string",
+        "maxLength": 40
+      },
+      "end": {
+        "type": "string",
+        "maxLength": 40
+      }
+    },
+    "required": [
+      "id",
+      "start",
+      "end"
+    ],
+    "additionalProperties": false
+  }
+}

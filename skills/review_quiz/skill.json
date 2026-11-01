@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "id": "review_quiz",
+  "title": "复习自测",
+  "kind": "builtin",
+  "action": "quiz",
+  "description": "根据本轮真实资料生成一道自测题预览，包含参考答案和完整来源标记。用户确认后加入题库。",
+  "permissions": [
+    "创建待确认预览"
+  ],
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "maxLength": 160
+      },
+      "question": {
+        "type": "string",
+        "maxLength": 2000
+      },
+      "expected": {
+        "type": "string",
+        "maxLength": 2000
+      },
+      "citation": {
+        "type": "string",
+        "maxLength": 500
+      }
+    },
+    "required": [
+      "title",
+      "question",
+      "expected",
+      "citation"
+    ],
+    "additionalProperties": false
+  }
+}

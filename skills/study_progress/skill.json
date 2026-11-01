@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "id": "study_progress",
+  "title": "任务进度",
+  "kind": "builtin",
+  "action": "task_update",
+  "description": "提出任务状态修改，用户确认后生效。",
+  "permissions": [
+    "创建待确认预览"
+  ],
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "maxLength": 40
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "todo",
+          "doing",
+          "done"
+        ]
+      }
+    },
+    "required": [
+      "id",
+      "status"
+    ],
+    "additionalProperties": false
+  }
+}

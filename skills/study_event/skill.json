@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "id": "study_event",
+  "title": "日历安排",
+  "kind": "builtin",
+  "action": "event",
+  "description": "提出本地日历安排预览；task_id可为空，用户确认后再次检查冲突。",
+  "permissions": [
+    "创建待确认预览"
+  ],
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "maxLength": 160
+      },
+      "start": {
+        "type": "string",
+        "maxLength": 40
+      },
+      "end": {
+        "type": "string",
+        "maxLength": 40
+      },
+      "task_id": {
+        "type": "string",
+        "maxLength": 40
+      },
+      "location": {
+        "type": "string",
+        "maxLength": 300
+      }
+    },
+    "required": [
+      "title",
+      "start",
+      "end",
+      "task_id",
+      "location"
+    ],
+    "additionalProperties": false
+  }
+}

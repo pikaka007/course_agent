@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "id": "study_context",
+  "title": "学习工作区",
+  "kind": "builtin",
+  "action": "context",
+  "description": "查询本地任务、日历、草稿、自测和提醒；这是本机数据，不是在线账户。",
+  "permissions": [
+    "读取本地学习工作区"
+  ],
+  "parameters": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false
+  }
+}
