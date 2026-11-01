@@ -31,7 +31,7 @@ SQLite 可能产生 -wal/-shm 旁文件，也都在被忽略的 local/ 内。索
 
 ## 可复现验证
 
-运行 `.venv/Scripts/python.exe -m unittest discover -s tests -v`，本轮 71 项通过，完整输出在 evidence/v4/test-results.txt。测试使用临时目录、替身模型及本机 HTTP，含截断 SSE、分片参数、跨片段密钥脱敏、取消阻塞读取、PDF 页码/空白/加密、索引失效与范围、审核错误摘录、会话并发/迁移/删除/过期预览。不会将自动化测试误写成真实模型验收。
+运行 `python -m unittest discover -s tests -v`，本轮 71 项通过，完整输出在 evidence/v4/test-results.txt。测试使用临时目录、替身模型及本机 HTTP，含截断 SSE、分片参数、跨片段密钥脱敏、取消阻塞读取、PDF 页码/空白/加密、索引失效与范围、审核错误摘录、会话并发/迁移/删除/过期预览。不会将自动化测试误写成真实模型验收。
 
 `scripts/evaluate_retrieval.py` 含自编语料和 16 条固定问题：12 条有答案、4 条无答案。V3 Hit@3 和 MRR@3 为 0.3333，V4 为 1.0；两版负例正确率均为 1.0。该集合偏向项目常见概念与问法，只用于回归，不能推断一般准确率。索引创建和缓存影响耗时，不作公平速度比较。完整逐题结果在 evidence/v4/retrieval-evaluation.json。
 

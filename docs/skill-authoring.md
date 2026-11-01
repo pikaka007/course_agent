@@ -41,7 +41,7 @@ args = json.load(sys.stdin)
 print(json.dumps({"total_minutes": args["rounds"] * args["minutes"]}))
 ```
 
-支持的参数类型为 object、array、string、integer、boolean 及 enum、长度/数值范围；不是完整 JSON Schema 实现。`requires` 填 Python 发行包名，系统检查是否安装，不自动执行 pip，也不自动运行安装脚本。依赖需要用户在项目虚拟环境中安装。权限字段只是说明，并非操作系统权限限制。
+支持的参数类型为 object、array、string、integer、boolean 及 enum、长度/数值范围；不是完整 JSON Schema 实现。`requires` 填 Python 发行包名，系统检查是否安装，不自动执行 pip，也不自动运行安装脚本。依赖需要安装到运行 CourseMate 的同一个 Python 环境中。权限字段只是说明，并非操作系统权限限制。
 
 ## 使用
 

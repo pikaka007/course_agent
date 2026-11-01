@@ -4,13 +4,12 @@ CourseMate 提供网页和 CLI 两个入口。以下以总结课件为主线，�
 
 ## 1. 启动和连接模型
 
-首次运行需要 Python 3.10+。在项目目录执行：
+首次运行需要 Python 3.10+。在项目目录执行以下命令；如果系统使用 `python3`，请统一替换命令名。其他安装方式见 [安装说明](installation.md)。
 
 ```powershell
-python -m venv .venv
-.venv/Scripts/python.exe -m pip install -r requirements-lock.txt
-.venv/Scripts/python.exe app.py check
-.venv/Scripts/python.exe app.py serve --port 8765
+python -m pip install -r requirements-lock.txt
+python app.py check
+python app.py serve --port 8765
 ```
 
 打开 http://127.0.0.1:8765，进入“设置”，填写 Base URL、模型名和 API Key。DeepSeek 官方地址为 `https://api.deepseek.com`，模型名从账户实际可用列表选择。保存后使用连接测试；成功时可以看到模型和用量等回执。连接测试会发出真实请求，因此不能用离线测试结果代替。
@@ -49,7 +48,7 @@ python -m venv .venv
 打开另一个终端，在项目目录启动：
 
 ```powershell
-.venv/Scripts/python.exe app.py chat
+python app.py chat
 ```
 
 进入交互界面后，依次尝试以下输入。文件名应替换成自己的资料：
@@ -96,13 +95,13 @@ CLI 中可用 `/study` 查看学习记录，`/pending` 查看提案，`/confirm 
 离线回归用于验证程序逻辑：
 
 ```powershell
-.venv/Scripts/python.exe -m unittest discover -s tests -v
+python -m unittest discover -s tests -v
 ```
 
 真实模型验收使用以下脚本，会产生 API 用量：
 
 ```powershell
-.venv/Scripts/python.exe scripts/live_study_acceptance.py --live
+python scripts/live_study_acceptance.py --live
 ```
 
 判断 Agent 是否完成任务，需要同时检查结果、工具调用和原文依据。连接测试成功只能说明接口可用；测试用例通过不能替代真实模型运行；有模型响应也不等于任务已完整完成。

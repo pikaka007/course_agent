@@ -8,22 +8,21 @@ CourseMate 把课程资料、学习计划和复习记录放在同一个工作台
 
 ## 快速开始
 
-需要 Python 3.10 或更高版本，并支持 SQLite FTS5。以下命令适用于 Windows PowerShell：
+需要 Python 3.10 或更高版本，并支持 SQLite FTS5。在项目目录使用以下命令：
 
 ```powershell
 git clone https://github.com/pikaka007/course_agent.git
 cd course_agent
-python -m venv .venv
-.venv/Scripts/python.exe -m pip install -r requirements-lock.txt
-.venv/Scripts/python.exe app.py check
-.venv/Scripts/python.exe app.py serve --port 8765
+python -m pip install -r requirements-lock.txt
+python app.py check
+python app.py serve --port 8765
 ```
 
 打开 http://127.0.0.1:8765，在“设置”中填写模型接口、模型名称和 API Key，然后测试连接。DeepSeek 官方接口地址为 `https://api.deepseek.com`；模型名称请以自己的账户实际可用列表为准。
 
 也可以复制 `.env.example` 为 `.env` 后填写配置。项目优先读取本地 `.env`，其次读取系统环境变量。密钥只保存在本机，配置示例和源码包不包含实际密钥。网页修改连接后，已打开的 CLI 需要重启才能读取新配置。
 
-macOS 和 Linux 将上述 Python 路径替换为 `.venv/bin/python`。
+以下命令统一使用 `python`。如果系统使用 `python3`，替换命令名即可；安装依赖和运行项目时请使用同一个 Python。可选的依赖隔离方式见 [安装说明](docs/installation.md)。
 
 完整操作步骤、工具执行过程及异常处理见 [Agent 运行说明](docs/runtime-guide.md)。
 
@@ -45,7 +44,7 @@ macOS 和 Linux 将上述 Python 路径替换为 `.venv/bin/python`。
 在项目目录运行以下命令，或双击 `终端聊天.bat`：
 
 ```powershell
-.venv/Scripts/python.exe app.py chat
+python app.py chat
 ```
 
 进入后可以连续提问，不必每次重新启动程序。终端支持 Markdown 输出、工具执行进度、输入历史、命令补全和会话恢复。Enter 发送，Esc+Enter 换行，Tab 补全命令，Ctrl+C 可中断正在接收的回答。
@@ -121,7 +120,7 @@ macOS 和 Linux 将上述 Python 路径替换为 `.venv/bin/python`。
 ## 验证与使用范围
 
 ```powershell
-.venv/Scripts/python.exe -m unittest discover -s tests -v
+python -m unittest discover -s tests -v
 ```
 
 现有回归记录为 105 项测试通过，覆盖资料处理、引用检查、会话、技能和确认事务。真实 API 验收记录与离线测试分别保存；`python scripts/live_study_acceptance.py --live` 会产生实际模型用量。`demo` 是固定演示流程，不调用模型；真实请求失败不会自动伪装成演示成功。
